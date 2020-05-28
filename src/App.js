@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState} from 'react';
 import './App.css';
+import Modal from './components/Modal';
+import Estado from  './components/Estado';
 
 function App() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App-header">
+      <h1>Documentos</h1> 
+      <div className="Body">
+          <h3>Inserir novo</h3>  
+      <button onClick={() => setIsModalVisible(true)}>Iniciar Documento</button>
+          {isModalVisible ? (
+            <Modal onClose={() => setIsModalVisible(false)}>
+           </Modal> 
+           ) : null} 
     </div>
+  </div>     
   );
+  
 }
 
 export default App;
